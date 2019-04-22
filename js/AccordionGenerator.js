@@ -45,7 +45,7 @@ class AccordionGenerator {
 
       this.uniqueId = `${this.targetElement}-${index}`;
       this.option = option;
-      
+
       this.html += `
       <div class="section-container">
         ${this.section()}
@@ -54,8 +54,11 @@ class AccordionGenerator {
       `
     });
 
-    console.log(`<div class="accordion">${this.html}</div>`)
+    //console.log(`<div class="accordion">${this.html}</div>`)
 
+    document.getElementById(this.targetElement).innerHTML = `
+    <div class="accordion" id="accordion-${this.targetElement}">${this.html}</div>
+    `
   }
 
   // Activate Accordion
