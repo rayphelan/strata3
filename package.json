@@ -2,5 +2,8 @@
   "name": "strata3",
   "version": "1.0.0",
   "description": "Coding test for Strata3",
-  "author": "Ray Phelan"
+  "author": "Ray Phelan",
+  "devDependencies": {
+    "grunt": "^1.0.4"
+  }
 }
