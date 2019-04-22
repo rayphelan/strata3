@@ -106,7 +106,27 @@ class AccordionGenerator {
       }
     });
 
+
+    // Add focus and blur style
+    accordion.querySelectorAll('.accordion-trigger').forEach(trigger => {
+
+      trigger.addEventListener('focus', () => {
+        accordion.classList.add('focus');
+      });
+
+      trigger.addEventListener('blur', () => {
+        accordion.classList.remove('focus');
+      });
+
+    });
+
+    // Click first accordion button to activate
+    accordion.getElementsByTagName("BUTTON")[0].click();
+
+
   }
+
+
 }
 
 export { AccordionGenerator }

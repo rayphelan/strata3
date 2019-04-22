@@ -110,3 +110,11 @@
   margin-top: -2px;
 }
 
+/* Animate Icons */
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon:before {
+   transform: rotate(90deg);
+}
+.accordion-trigger[aria-expanded="true"] .accordion-icon:after {
+  transform: rotate(180deg);
+}
