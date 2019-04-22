@@ -10,12 +10,32 @@
 </head>
 <body>
   
+  <!-- Accordion Div -->
+  <div id="test1"></div>
+
 
   <script type="module">
     
     // Import AccordionGenerator class
     import { AccordionGenerator } from './js/AccordionGenerator.js';
 
+    let test = [
+        {
+          question: "Question 1",
+          answer: "Answer 1"
+        },
+        {
+          question: "Question 2",
+          answer: "Answer 2"
+        },
+        {
+          question: "Question 3",
+          answer: "Answer 3"
+        },
+      ];
+
+    let acc = new AccordionGenerator("test1", test);
+      
   </script>
 
 </body>
