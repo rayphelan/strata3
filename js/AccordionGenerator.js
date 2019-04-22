@@ -2,19 +2,15 @@ class AccordionGenerator {
 
   constructor(targetElement, contents) {
 
-    // Class variables
     this.targetElement = targetElement;
     this.contents = contents;
     this.uniqueId = '';
     this.html = '';
     this.option = '';
 
-    // Prepare HTML
     this.prepare();
-
   }
 
-  // Create section element
   section() {
     return `
       <section>
@@ -27,7 +23,6 @@ class AccordionGenerator {
     `
   }
 
-  // Create article element
   article() {
     return `
       <article id="article-${this.uniqueId}" role="region" aria-labelledby="acc-button-${this.uniqueId}" class="accordion-hidden">
@@ -38,7 +33,7 @@ class AccordionGenerator {
     `
   }
 
-  // Prepare html structure to load on page
+
   prepare() {
 
     this.contents.forEach((option, index) => {
@@ -59,13 +54,59 @@ class AccordionGenerator {
     document.getElementById(this.targetElement).innerHTML = `
     <div class="accordion" id="accordion-${this.targetElement}">${this.html}</div>
     `
+
+    this.activate();
   }
 
-  // Activate Accordion
   activate() {
-    
-  }
 
+    let accordion = document.getElementById(`accordion-${this.targetElement}`);
+
+    // Listen for clicks
+    accordion.addEventListener('click', event => {
+
+      let target = event.target;
+
+      // If trigger was clicked
+      if (target.classList.contains('accordion-trigger')) {
+
+        // Active panel
+        let active = accordion.querySelector('[aria-expanded="true"]');
+
+        // Section to activate
+        let panel = document.getElementById(target.getAttribute('aria-controls'))
+
+        // close panel
+        if (active && active !== target) {
+
+          // Set expanded attribute to false
+          active.setAttribute('aria-expanded', 'false');
+
+          let activePanel = document.getElementById(active.getAttribute('aria-controls'));
+
+          // Hide the related panel
+          activePanel.classList.toggle('accordion-hidden');
+
+        }
+
+        // Set expanded to false on target
+        if (target.getAttribute('aria-expanded') == 'true') {
+          target.setAttribute('aria-expanded', 'false');
+        }
+        // Set expanded to true on target
+        else {
+          target.setAttribute('aria-expanded', 'true');
+        }
+
+        // Toggle visibility
+        panel.classList.toggle('accordion-hidden');
+
+        // Prevent default action
+        event.preventDefault();
+      }
+    });
+
+  }
 }
 
 export { AccordionGenerator }

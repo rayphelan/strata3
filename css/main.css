@@ -55,6 +55,7 @@
   outline: none;
 }
 
+
 .accordion-trigger[aria-expanded="true"] {
   background: #e4e4e4;
 }
@@ -68,3 +69,44 @@
   border-style: none;
   background: white;
 }
+
+.accordion-title {
+  pointer-events: none;
+  padding: 0.25em;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Accordion Icon */
+
+.accordion-icon {
+  pointer-events: none;
+  position: absolute;
+  right: 2em;  
+  width: 20px;
+  height: 20px;
+}
+
+.accordion-icon:before, .accordion-icon:after {
+  content: "";
+  position: absolute;
+  background-color: #333333;
+  transition: transform 0.25s ease-out;
+}
+
+.accordion-icon:before {
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  margin-left: -2px;
+}
+
+.accordion-icon:after {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+}
+

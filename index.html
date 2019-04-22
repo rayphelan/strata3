@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset='utf-8'>
   <title>Strat3 Coding Test - Ray Phelan</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  
+
   <link rel='stylesheet' type='text/css' media='screen' href='css/main.min.css'>
-  
+
 </head>
+
 <body>
-  
+
   <!-- Accordion Div -->
   <div id="test1"></div>
   <div id="test2"></div>
 
 
   <script type="module">
-    
+
     // Import AccordionGenerator class
     import { AccordionGenerator } from './js/AccordionGenerator.js';
 
     let test = [
-        {
-          question: "Question 1",
-          answer: "Answer 1"
-        },
-        {
-          question: "Question 2",
-          answer: "Answer 2"
-        },
-        {
-          question: "Question 3",
-          answer: "Answer 3"
-        },
-      ];
+      {
+        question: "Question 1",
+        answer: "Answer 1"
+      },
+      {
+        question: "Question 2",
+        answer: "Answer 2"
+      },
+      {
+        question: "Question 3",
+        answer: "Answer 3"
+      },
+    ];
 
     let acc = new AccordionGenerator("test1", test);
     let acc2 = new AccordionGenerator("test2", test);
-      
+
   </script>
 
 </body>
+
 </html>
